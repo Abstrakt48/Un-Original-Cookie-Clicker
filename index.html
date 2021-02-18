@@ -16,11 +16,11 @@
 
     document.getElementById("cookiespersecond").innerHTML =
       "You Are Gaining " +
-      (autoclicker + (granny + 1) * 2) * multiplyer +
+      (autoclicker + (granny + 1) * 2) * multiplier +
       " Cookies Per/S";
   }
 
-  var multiplyer = 1;
+  var multiplier = 1;
   var cookiecount = 0;
   var autoclicker = 0;
   var granny = 0;
@@ -67,8 +67,17 @@
     <button><a href="#" onclick="save()">Save</a></button>
     <button><a href="#" onclick="load()">Load</a></button>
     <button><a href="#" onclick="reset()">Reset</a></button>
-    
-    <
+
+    <p>------------------------------------------------------</p>
+
+    <p id="amountMultiplier">Multiplier Upgrade x2</p>
+    <button>
+      <a href="#" onclick="buyMultiplier()"
+        ><span id="ammountMultipier2">x2</span></a
+      >
+    </button>
+
+    <p>------------------------------------------------------</p>
 
     <p>Buy 1 Auto-clicker</p>
     <button>
