@@ -4,25 +4,18 @@
   function update() {
     document.getElementById("text").value = cookiecount;
     document.title = cookiecount + " cookies";
-    document.getElementById("ammountAutoClick").innerHTML =
-      "You Own " + autoclicker + " Auto-clickers";
-    document.getElementById("costAutoClick").innerHTML =
-      (autoclicker + 1) * 12 + " Cookies";
+    
+    document.getElementById("ammountAutoClick").innerHTML ="You Own " + autoclicker + " Auto-clickers";
+    document.getElementById("costAutoClick").innerHTML =(autoclicker + 1) * 12 + " Cookies";
 
-    document.getElementById("ammountGranny").innerHTML =
-      "You Own " + granny + " Granny's";
-    document.getElementById("grannyCost").innerHTML =
-      (granny + 1) * 24 + " Cookies";
+    document.getElementById("ammountGranny").innerHTML = "You Own " + granny + " Granny's";
+    document.getElementById("grannyCost").innerHTML = (granny + 1) * 24 + " Cookies";
     
-    document.getElementById("ammountFactory").innerHTML =
-      "You Own " + factory + " Factories";
-    document.getElementById("factoryCost").innerHTML =
-      (factory + 1) * 120 + " Cookies";
+    document.getElementById("ammountFactory").innerHTML = "You Own " + factory + " Factories";
+    document.getElementById("factoryCost").innerHTML = (factory + 1) * 120 + " Cookies";
     
-    document.getElementById("amountEdi").innerHTML =
-      "You Own " + weed + " Edibles";
-    document.getElementById("ediCost").innerHTML =
-      (weed + 1) * 420 + " Cookies";
+    document.getElementById("ammountEdi").innerHTML = "You Own " + weed + " Edibles";
+    document.getElementById("ediCost").innerHTML = (weed + 1) * 420 + " Cookies";
   }
 
   var multiplier = 1;
@@ -37,6 +30,7 @@
     cookiecount = cookiecount + granny * 2;
     cookiecount = cookiecount + factory * 5;
     cookiecount = cookiecount + weed * 15;
+    
     update();
   }
 
