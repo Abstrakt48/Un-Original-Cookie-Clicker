@@ -15,11 +15,13 @@
       (granny + 1) * 24 + " Cookies";
     
     document.getElementById("ammountFactory").innerHTML =
-      "You Own " + factory
+      "You Own " + factory + " Factories"
+    document.getElementById("factoryCost").innerHTML =
+      (factory + 1) * 120 + " Cookies";
 
     document.getElementById("cookiespersecond").innerHTML =
       "You Are Gaining " +
-      (autoclicker + (granny + 1) * 2) * multiplier +
+      (autoclicker + (granny + 1 + (factory + 4)) * 2 ) * multiplier +
       " Cookies Per/S";
   }
 
@@ -32,6 +34,7 @@
   function timer() {
     cookiecount = cookiecount + autoclicker;
     cookiecount = cookiecount + granny * 2;
+    cookiecount = cookiecount + factory * 5;
     update();
   }
 
@@ -140,7 +143,7 @@
 
       function buyFact() {
         if (cookiecount >= (factory + 1) * 120) {
-          cookiecount = cookiecount - (factory + 1) * 24;
+          cookiecount = cookiecount - (factory + 1) * 120;
           factory = factory + 1;
           update();
         }
@@ -150,6 +153,7 @@
         localStorage.setItem("cookiecount", cookiecount);
         localStorage.setItem("autoclick", autoclicker);
         localStorage.setItem("grannys", granny);
+        localStorage.setItem("factory", factory);
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
