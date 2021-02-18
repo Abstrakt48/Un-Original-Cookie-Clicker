@@ -4,6 +4,9 @@
   function update() {
     document.getElementById("text").value = cookiecount;
     document.title = cookiecount + " cookies";
+    
+    document.getElementById("amountMultiplier").innerHTML = "You O"
+    
     document.getElementById("ammountAutoClick").innerHTML =
       "You Own " + autoclicker + " Auto-clickers";
     document.getElementById("costAutoClick").innerHTML =
@@ -26,8 +29,8 @@
   var granny = 0;
 
   function timer() {
-    cookiecount = cookiecount + autoclicker;
-    cookiecount = cookiecount + granny * 2;
+    cookiecount = cookiecount + autoclicker * multiplier;
+    cookiecount = cookiecount + granny * 2 * multiplier;
     update();
   }
 
@@ -145,10 +148,18 @@
         autoclicker = parseInt(autoclicker);
         granny = 0;
         granny = parseInt(granny);
+        document.getElementById("cookiespersecond").innerHTML =
+        "You Are Gaining " +
+        (autoclicker + (granny + 1) * 2) * multiplier +
+        " Cookies Per/S";
+        multiplier = 1;
       }
       
       function buyMultiplier() {
-        if (cookiecount >= )
+        if (cookiecount >= ((multiplier + 1) * 100)) {
+          cookiecount = cookiecount - ((multiplier + 1) * 100);
+          multiplier = multiplier + 1;
+        }
       }
       
     </script>
