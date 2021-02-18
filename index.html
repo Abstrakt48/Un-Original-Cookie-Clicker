@@ -12,15 +12,15 @@
     document.getElementById("ammountGranny").innerHTML =
       "You Own " + granny + " Granny's";
     document.getElementById("grannyCost").innerHTML =
-      (granny + 1) * 15 + " Cookies";
+      (granny + 1) * 24 + " Cookies";
 
     document.getElementById("cookiespersecond").innerHTML =
       "You Are Gaining " +
-      (autoclicker + granny + 1 * 2) * multiplyer +
+      (autoclicker + (granny + 1) * 2) * multiplyer +
       " Cookies Per/S";
   }
 
-  var multiplyer;
+  var multiplyer = 1;
   var cookiecount = 0;
   var autoclicker = 0;
   var granny = 0;
@@ -107,8 +107,8 @@
       }
 
       function buygranny() {
-        if (cookiecount >= (granny + 1) * 15) {
-          cookiecount = cookiecount - (granny + 1) * 15;
+        if (cookiecount >= (granny + 1) * 24) {
+          cookiecount = cookiecount - (granny + 1) * 24;
           granny = granny + 1;
           update();
         }
@@ -117,7 +117,7 @@
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
         localStorage.setItem("autoclick", autoclicker);
-        localStorage.setItem("grannys", buygranny);
+        localStorage.setItem("grannys", granny);
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
@@ -134,6 +134,8 @@
         cookiecount = parseInt(cookiecount);
         autoclicker = 0;
         autoclicker = parseInt(autoclicker);
+        granny = 0;
+        granny = parseInt(granny);
       }
     </script>
     <style>
