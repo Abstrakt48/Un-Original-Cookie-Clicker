@@ -49,6 +49,7 @@
 
     <button><a href="#" onclick="save()">Save</a></button>
     <button><a href="#" onclick="load()">Load</a></button>
+    <button><a href="#" onclick="reset()">Reset</a></button>
 
     <p>Buy 1 Auto-clicker</p>
     <button>
@@ -85,10 +86,23 @@
 
         update();
       }
+      function reset() {
+        cookiecount = 0;
+        cookiecount = parseInt(cookiecount);
+        autoclicker = 0;
+        autoclicker = parseInt(autoclicker);
+      }
+      
+      
     </script>
     <style>
       input {
         text-align: center;
+      }
+      
+      body {
+        color: white;
+        background-color: black;
       }
     </style>
   </body>
