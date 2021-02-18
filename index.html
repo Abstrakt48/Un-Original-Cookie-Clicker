@@ -4,9 +4,6 @@
   function update() {
     document.getElementById("text").value = cookiecount;
     document.title = cookiecount + " cookies";
-    
-    document.getElementById("amountMultiplier").innerHTML = "You O"
-    
     document.getElementById("ammountAutoClick").innerHTML =
       "You Own " + autoclicker + " Auto-clickers";
     document.getElementById("costAutoClick").innerHTML =
@@ -29,8 +26,8 @@
   var granny = 0;
 
   function timer() {
-    cookiecount = cookiecount + autoclicker * multiplier;
-    cookiecount = cookiecount + granny * 2 * multiplier;
+    cookiecount = cookiecount + autoclicker;
+    cookiecount = cookiecount + granny * 2;
     update();
   }
 
@@ -71,12 +68,6 @@
     <button><a href="#" onclick="load()">Load</a></button>
     <button><a href="#" onclick="reset()">Reset</a></button>
 
-    <p>------------------------------------------------------</p>
-
-    <p id="amountMultiplier">Multiplier Upgrade x2</p>
-    <button><a href="#" onclick="buyMultiplier()"><span id="ammountMultipier2">x2</span></a></button>
-    <p id="costMultiplier">200 Cookies</p>
-    <p id="currentMultiplyer">Your Current Multiplier Is x1</p>
 
     <p>------------------------------------------------------</p>
 
@@ -148,18 +139,6 @@
         autoclicker = parseInt(autoclicker);
         granny = 0;
         granny = parseInt(granny);
-        document.getElementById("cookiespersecond").innerHTML =
-        "You Are Gaining " +
-        (autoclicker + (granny + 1) * 2) * multiplier +
-        " Cookies Per/S";
-        multiplier = 1;
-      }
-      
-      function buyMultiplier() {
-        if (cookiecount >= ((multiplier + 1) * 100)) {
-          cookiecount = cookiecount - ((multiplier + 1) * 100);
-          multiplier = multiplier + 1;
-        }
       }
       
     </script>
