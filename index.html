@@ -39,7 +39,7 @@
     document.getElementById("ammountBank").innerHTML =
       "You Own " + bank + " Bank(s)";
     document.getElementById("bankCost").innerHTML =
-      (bank + 1) * 10500 + " Cookies";
+      (bank + 1) * 21000 + " Cookies";
   }
 
   var multiplier = 1;
@@ -51,6 +51,7 @@
   var mine = 0;
   var church = 0;
   var bank = 0;
+  var base = 0;
 
   function timer() {
     cookiecount = cookiecount + autoclicker;
@@ -60,6 +61,7 @@
     cookiecount = cookiecount + mine * 20;
     cookiecount = cookiecount + church * 30;
     cookiecount = cookiecount + bank * 100;
+    cookiecount = cookiecount + base * 500;
 
     update();
   }
@@ -232,6 +234,26 @@
     <p id="ammountBank">You own 0 Banks</p>
 
     <p>------------------------------------------------------</p>
+    
+    <!-- millitary base -->
+
+    <p>Buy 1 Base</p>
+    <button>
+      <a href="#" onclick="buyBase()"
+        ><img
+          src="https://www.flaticon.com/svg/vstatic/svg/4230/4230780.svg?token=exp=1613677383~hmac=c1e7d8fa2d6c21b4f5756bdff29c4b44"
+          alt="Bank"
+          width="50"
+          height="60"
+      /></a>
+    </button>
+    <p id="baseCost">0000 Cookies</p>
+    <p>
+      A millitary base for the cookies army
+    </p>
+    <p id="ammountBase">You own 0 Millitary Bases</p>
+
+    <p>------------------------------------------------------</p>
 
     <script>
       function buyclick() {
@@ -283,12 +305,22 @@
       }
 
       function buyBank() {
-        if (cookiecount >= (bank + 1) * 10500) {
-          cookiecount = cookiecount - (bank + 1) * 10500;
+        if (cookiecount >= (bank + 1) * 21000) {
+          cookiecount = cookiecount - (bank + 1) * 21000;
           bank = bank + 1;
           update();
         }
       }
+      
+      function buyBase() {
+        if (cookiecount >= (bank + 1) * 21000) {
+          cookiecount = cookiecount - (bank + 1) * 21000;
+          bank = bank + 1;
+          update();
+        }
+      }
+      
+      
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
         localStorage.setItem("autoclick", autoclicker);
@@ -332,6 +364,10 @@
         weed = parseInt(weed);
         mine = 0;
         mine = parseInt(mine);
+        church = 0;
+        church = parseInt(church);
+        bank = 0;
+        bank = parseInt(bank);
       }
     </script>
 
