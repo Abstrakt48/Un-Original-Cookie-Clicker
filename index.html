@@ -30,6 +30,11 @@
       "You Own " + mine + " Mine(s)";
     document.getElementById("mineCost").innerHTML =
       (mine + 1) * 720 + " Cookies";
+    
+    document.getElementById("ammountChurch").innerHTML =
+      "You Own " + church + " Church(es)";
+    document.getElementById("churchCost").innerHTML =
+      (church + 1) * 1200 + " Cookies";
   }
 
   var multiplier = 1;
@@ -39,6 +44,7 @@
   var factory = 0;
   var weed = 0;
   var mine = 0;
+  var church = 0;
 
   function timer() {
     cookiecount = cookiecount + autoclicker;
@@ -46,6 +52,7 @@
     cookiecount = cookiecount + factory * 5;
     cookiecount = cookiecount + weed * 10;
     cookiecount = cookiecount + mine * 20;
+    cookiecount = cookiecount + church * 30;
 
     update();
   }
@@ -177,6 +184,24 @@
     <p id="ammountMine">You own 0 Mine's</p>
 
     <p>------------------------------------------------------</p>
+    
+    <!-- church -->
+
+    <p>Buy 1 Church</p>
+    <button>
+      <a href="#" onclick="buyChurch()"
+        ><img
+          src="https://www.flaticon.com/svg/vstatic/svg/3100/3100597.svg?token=exp=1613676751~hmac=8e9cc22373cf9647cc2c82042284d2ad" alt="Church"
+          width="50"
+          height="60"
+      /></a>
+    </button>
+    <p id="churchCost">1200 Cookies</p>
+    <p>A church that worships the holy cookie god, and recieves 30 cookies in return</p>
+    <p id="ammountChurch">You own 0 Churches</p>
+    
+    <p>------------------------------------------------------</p>
+    
 
     <script>
       function buyclick() {
@@ -218,6 +243,14 @@
           update();
         }
       }
+      
+      function buyChurch() {
+        if (cookiecount >= (church + 1) * 1200) {
+          cookiecount = cookiecount - (church + 1) * 1200;
+          church = church + 1;
+          update();
+        }
+      }
 
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
@@ -226,6 +259,7 @@
         localStorage.setItem("factory", factory);
         localStorage.setItem("weed", weed);
         localStorage.setItem("mine", mine);
+        localStorage.setItem("church", church)
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
@@ -240,6 +274,8 @@
         weed = parseInt(weed);
         mine = localStorage.getItem("mine");
         mine = parseInt(mine);
+        church = localStorage.getItem("church")
+        church = parseInt(church);
 
         update();
       }
