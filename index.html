@@ -15,9 +15,14 @@
       (granny + 1) * 24 + " Cookies";
     
     document.getElementById("ammountFactory").innerHTML =
-      "You Own " + factory + " Factories"
+      "You Own " + factory + " Factories";
     document.getElementById("factoryCost").innerHTML =
       (factory + 1) * 120 + " Cookies";
+    
+    document.getElementById("ammountMine").innerHTML =
+      "You Own " + mine + " Mines";
+    document.getElementById("mineCost").innerHTML =
+      (mine + 1) * 1200 + " Cookies";
   }
 
   var multiplier = 1;
@@ -25,11 +30,13 @@
   var autoclicker = 0;
   var granny = 0;
   var factory = 0;
+  var mine = 0;
 
   function timer() {
     cookiecount = cookiecount + autoclicker;
     cookiecount = cookiecount + granny * 2;
     cookiecount = cookiecount + factory * 5;
+    cookiecount = cookiecount + mine * 15;
     update();
   }
 
@@ -41,7 +48,7 @@
     <title>0 cookies</title>
   </head>
   <body>
-    <h1>Un-original Cookie Clicker (V.0.5)</h1>
+    <h1>Un-original Cookie Clicker (V.0.7.5)</h1>
     <h3>This site was made by Oliver Hughes</h3>
     <h5>An Un-original Cookie-Clicker Clone</h5>
     <p>------------------------------------------------------</p>
@@ -120,10 +127,10 @@
     
     <!-- Mine-->
 
-    <p>Buy 1 Factory</p>
+    <p>Buy 1 Mine</p>
     <button>
-      <a href="#" onclick="buyFact()"><img src="https://lh3.googleusercontent.com/proxy/F6-KXgxpFmLbhEgkNy2OZysNLc_xLq4GFFtrcASVdyUy7TtaiurnZksAeFrFd6MD_nmRZopQw89N2l4RaFTAzM8WUKm8QywJ" 
-      width="50" height = "60"/></a>
+      <a href="#" onclick="buyMine()"><img src="https://lh3.googleusercontent.com/proxy/L8gkKcpb80B7_QU9ZST37XR6wUzKTXQnoEhYjMwD1HC43nf7X0Ps5e7DPver6UJXheQD0dL0URjLrtbwF-NMMT3z1FEYjoEf" 
+      width="50" height="60"/></a>
     </button>
     <p id="mineCost" >1200 Cookies</p>
     <p id="ammountMine" >You own 0 Mines</p>
@@ -155,11 +162,20 @@
         }
       }
       
+      function buyMine() {
+        if (cookiecount >= (mine + 1) * 1200) {
+          cookiecount = cookiecount - (factory + 1) * 1200;
+          mine = mine + 1;
+          update();
+        }
+      }
+      
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
         localStorage.setItem("autoclick", autoclicker);
         localStorage.setItem("grannys", granny);
         localStorage.setItem("factory", factory);
+        localStorage.setItem("mine", mine);
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
@@ -170,6 +186,8 @@
         granny = parseInt(granny);
         factory = localStorage.getItem("factory");
         factory = parseInt(factory);
+        mine = localStorage.getItem("mine");
+        mine = parseInt(mine)
 
         update();
       }
@@ -182,6 +200,8 @@
         granny = parseInt(granny);
         factory = 0;
         factory = parseInt(factory);
+        mine = 0;
+        mine = parseInt(mine);
       }
       
     </script>
