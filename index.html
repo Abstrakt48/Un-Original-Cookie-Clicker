@@ -9,10 +9,29 @@
     <br><br>
     You Got:
     <input type="text" id="text" disabled style="text-align: centre">
-    
     <script>
+      var cookiecount = 0;
       
+      function add() {
+        cookiecount += 1;
+        document.getElementById('text').value = cookiecount;
+        document.title = cookiecount + " Cookies";
+      }
     </script>
+    
+    Cookies
+    <br><br>
+    
+    <button>
+      <a href="#" onclick="save()">Save</a>
+      <a href="#" onclick="load()">Load</a>
+    </button>
+    
+    <script></script>
+    function save
+    </script
+    
+    
     
   </body>
 </html>
