@@ -1,5 +1,9 @@
 <script>
-  function update() {}
+  function update() {
+    document.getElementById('text').value = cookiecount
+    document.title = cookiecount + " cookies"
+    
+  }
 
   var cookiecount = 0;
   var autoclicker = 0;
@@ -50,9 +54,18 @@
       </a>
     </button>
     <p id="costAutoClick">Cookies</p>
-    <p id="ammountAutoClick">You Own 0 Auto-clicker</p>
+    <p id="ammountAutoClick">You Own 0 Auto-clickers</p>
 
     <script>
+      function buyclick() {
+        if (cookiecount >= (autoclicker + 1) * 12){
+          cookiecount = cookiecount - ((autoclicker + 1) * 12);
+          autoclicker = autoclicker + 1;
+          update();
+        }
+      }
+      
+      
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
       }
