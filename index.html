@@ -45,12 +45,12 @@
       "You Own " + base + " Military Base(s)";
     document.getElementById("baseCost").innerHTML =
       (base + 1) * 75000 + " Cookies";
-    
+
     document.getElementById("ammountLab").innerHTML =
       "You Own " + lab + " Science Lab(s)";
     document.getElementById("labCost").innerHTML =
       (lab + 1) * 500000 + " Cookies";
-    
+
     document.getElementById("ammountRepl").innerHTML =
       "You Own " + repl + " Quantum Replicator(s)";
     document.getElementById("replCost").innerHTML =
@@ -273,14 +273,15 @@
     <p id="ammountBase">You own 0 Military Bases</p>
 
     <p>------------------------------------------------------</p>
-    
+
     <!-- Science lab -->
 
     <p>Buy 1 Science Lab</p>
     <button>
       <a href="#" onclick="buyLab()"
         ><img
-          src="https://www.flaticon.com/svg/vstatic/svg/1283/1283487.svg?token=exp=1613679083~hmac=c60344295408d298cf91f6cfca2dadf3" alt="Science lab"
+          src="https://www.flaticon.com/svg/vstatic/svg/1283/1283487.svg?token=exp=1613679083~hmac=c60344295408d298cf91f6cfca2dadf3"
+          alt="Science lab"
           width="50"
           height="60"
       /></a>
@@ -292,7 +293,7 @@
     <p id="ammountLab">You own 0 Science Lab(s)</p>
 
     <p>------------------------------------------------------</p>
-    
+
     <!-- repl-->
 
     <p>Buy 1 Quantum Replicator</p>
@@ -307,7 +308,7 @@
     </button>
     <p id="replCost">999999999 Cookies</p>
     <p>
-      A Computer that has the power to make infinte cookies
+      A Computer that has the power to replicate cookies from a single crumb
     </p>
     <p id="ammountRepl">You own 0 Quantum Replicator(s)</p>
 
@@ -377,7 +378,7 @@
           update();
         }
       }
-      
+
       function buyLab() {
         if (cookiecount >= (lab + 1) * 500000) {
           cookiecount = cookiecount - (lab + 1) * 500000;
@@ -385,7 +386,7 @@
           update();
         }
       }
-      
+
       function buyRepl() {
         if (cookiecount >= (repl + 1) * 999999999) {
           cookiecount = cookiecount - (repl + 1) * 999999999;
