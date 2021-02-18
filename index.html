@@ -58,7 +58,7 @@
           border="-1"/>
       </a>
     </button>
-    <p id="costAutoClick">Cookies</p>
+    <p id="costAutoClick">12 Cookies</p>
     <p id="ammountAutoClick">You Own 0 Auto-clickers</p>
 
     <script>
@@ -73,12 +73,17 @@
       
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
+        localStorage.setItem("autoclick", autoclicker);
+        
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
         cookiecount = parseInt(cookiecount);
-        document.getElementById("text").value = cookiecount;
-        document.title = cookiecount + " Cookies";
+        autoclicker = localStorage.getItem("autoclick");
+        autoclicker = parseInt();
+        
+        update();
+        
       }
     </script>
     <style>
