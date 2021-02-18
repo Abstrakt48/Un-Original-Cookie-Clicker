@@ -50,6 +50,11 @@
       "You Own " + lab + " Science Lab(s)";
     document.getElementById("labCost").innerHTML =
       (lab + 1) * 500000 + " Cookies";
+    
+    document.getElementById("ammountRepl").innerHTML =
+      "You Own " + repl + " Quantum Replicator(s)";
+    document.getElementById("replCost").innerHTML =
+      (repl + 1) * 999999999 + " Cookies";
   }
 
   var multiplier = 1;
@@ -63,6 +68,7 @@
   var bank = 0;
   var base = 0;
   var lab = 0;
+  var repl = 0;
 
   function timer() {
     cookiecount = cookiecount + autoclicker;
@@ -74,6 +80,7 @@
     cookiecount = cookiecount + bank * 100;
     cookiecount = cookiecount + base * 500;
     cookiecount = cookiecount + lab * 1000;
+    cookiecount = cookiecount + repl * 1000000;
 
     update();
   }
@@ -292,16 +299,17 @@
     <button>
       <a href="#" onclick="buyRepl()"
         ><img
-          src="https://www.flaticon.com/svg/vstatic/svg/1283/1283487.svg?token=exp=1613679083~hmac=c60344295408d298cf91f6cfca2dadf3" alt="Science lab"
+          src="https://www.flaticon.com/svg/vstatic/svg/2621/2621135.svg?token=exp=1613680000~hmac=4fb2828ef25e25ab30710b12cf1bfe4b"
+          alt="Replicator"
           width="50"
           height="60"
       /></a>
     </button>
-    <p id="replCost">1000000000000 Cookies</p>
+    <p id="replCost">999999999 Cookies</p>
     <p>
       A Computer that has the power to make infinte cookies
     </p>
-    <p id="ammountrepl">You own 0 Quantum Replicator(s)</p>
+    <p id="ammountRepl">You own 0 Quantum Replicator(s)</p>
 
     <p>------------------------------------------------------</p>
 
@@ -377,6 +385,14 @@
           update();
         }
       }
+      
+      function buyRepl() {
+        if (cookiecount >= (repl + 1) * 999999999) {
+          cookiecount = cookiecount - (repl + 1) * 999999999;
+          repl = repl + 1;
+          update();
+        }
+      }
 
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
@@ -389,6 +405,7 @@
         localStorage.setItem("bank", bank);
         localStorage.setItem("base", base);
         localStorage.setItem("lab", lab);
+        localStorage.setItem("repl", repl);
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
@@ -411,6 +428,8 @@
         base = parseInt(base);
         lab = localStorage.getItem("lab");
         lab = parseInt(lab);
+        repl = localStorage.getItem("repl");
+        repl = parseInt(repl);
 
         update();
       }
@@ -435,6 +454,8 @@
         base = parseInt(base);
         lab = 0;
         lab = parseInt(lab);
+        repl = 0;
+        repl = parseInt(repl);
       }
     </script>
 
