@@ -1,7 +1,12 @@
 <script>
+  console.log("Oh, Hello there...")
+  
+  
   function update() {
     document.getElementById('text').value = cookiecount
     document.title = cookiecount + " cookies"
+    document.getElementById('ammountAutoClick').innerHTML = "You Own " + autoclicker + " Auto-clickers"
+    document.getElementById('costAutoClick').innerHTML = ((autoclicker + 1) * 12) + " Cookies";
     
   }
 
