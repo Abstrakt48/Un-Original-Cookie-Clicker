@@ -18,11 +18,6 @@
       "You Own " + factory + " Factories"
     document.getElementById("factoryCost").innerHTML =
       (factory + 1) * 120 + " Cookies";
-
-    document.getElementById("cookiespersecond").innerHTML =
-      "You Are Gaining " +
-      (autoclicker + (granny + 1 + (factory + 4)) * 2 ) * multiplier +
-      " Cookies Per/S";
   }
 
   var multiplier = 1;
@@ -46,11 +41,10 @@
     <title>0 cookies</title>
   </head>
   <body>
-    <h1>Un-original Cookie Clicker (V.0.1)</h1>
+    <h1>Un-original Cookie Clicker (V.0.5)</h1>
     <h3>This site was made by Oliver Hughes</h3>
     <h5>An Un-original Cookie-Clicker Clone</h5>
     <p>------------------------------------------------------</p>
-    <p id="cookiespersecond">You are gaining 0 cookies per/s</p>
 
     <a href="#" onclick="add()"
       ><img
@@ -162,6 +156,8 @@
         autoclicker = parseInt(autoclicker);
         granny = localStorage.getItem("grannys");
         granny = parseInt(granny);
+        factory = localStorage.getItem("factory");
+        factory = parseInt(factory);
 
         update();
       }
@@ -172,6 +168,8 @@
         autoclicker = parseInt(autoclicker);
         granny = 0;
         granny = parseInt(granny);
+        factory = 0;
+        factory = parseInt(factory);
       }
       
     </script>
