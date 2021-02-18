@@ -8,7 +8,7 @@
     width="275"/></a>
     <br><br>
     You Got:
-    <input type="text" id="text" disabled style="text-align: centre">
+    <input type="text" id="text" disabled>
     <script>
       var cookiecount = 0;
       
@@ -24,13 +24,28 @@
     
     <button>
       <a href="#" onclick="save()">Save</a>
+    </button>
+    <button>
       <a href="#" onclick="load()">Load</a>
     </button>
     
-    <script></script>
-    function save
-    </script
-    
+    <script>
+      function save() {
+        localStorage.setItem("cookiecount", cookiecount);
+      }
+      function load() {
+        cookiecount = localStorage.getItem("cookiecount");
+        cookiecount = parseInt(cookiecount);
+        document.getElementById('text').value = cookiecount;
+        document.title = cookiecount + " Cookies";
+      }
+      
+    </script>
+    <style>
+      input { 
+        text-align: center; 
+      }
+    </style>
     
     
   </body>
