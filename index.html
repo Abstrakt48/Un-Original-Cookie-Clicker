@@ -35,11 +35,16 @@
       "You Own " + church + " Church(es)";
     document.getElementById("churchCost").innerHTML =
       (church + 1) * 1200 + " Cookies";
-    
+
     document.getElementById("ammountBank").innerHTML =
       "You Own " + bank + " Bank(s)";
     document.getElementById("bankCost").innerHTML =
       (bank + 1) * 21000 + " Cookies";
+
+    document.getElementById("ammountBase").innerHTML =
+      "You Own " + base + " Military Base(s)";
+    document.getElementById("baseCost").innerHTML =
+      (base + 1) * 75000 + " Cookies";
   }
 
   var multiplier = 1;
@@ -234,24 +239,43 @@
     <p id="ammountBank">You own 0 Banks</p>
 
     <p>------------------------------------------------------</p>
-    
-    <!-- millitary base -->
 
-    <p>Buy 1 Base</p>
+    <!-- military base -->
+
+    <p>Buy 1 Military Base</p>
     <button>
       <a href="#" onclick="buyBase()"
         ><img
-          src="https://www.flaticon.com/svg/vstatic/svg/4230/4230780.svg?token=exp=1613677383~hmac=c1e7d8fa2d6c21b4f5756bdff29c4b44"
-          alt="Bank"
+          src="https://www.flaticon.com/svg/vstatic/svg/3191/3191023.svg?token=exp=1613678840~hmac=dc20b6ad7b745dddb641aef82663c003"
+          alt="Army base"
           width="50"
           height="60"
       /></a>
     </button>
-    <p id="baseCost">0000 Cookies</p>
+    <p id="baseCost">75000 Cookies</p>
     <p>
-      A millitary base for the cookies army
+      A military base for the cookies army
     </p>
-    <p id="ammountBase">You own 0 Millitary Bases</p>
+    <p id="ammountBase">You own 0 Military Bases</p>
+
+    <p>------------------------------------------------------</p>
+    
+    <!-- Science lab -->
+
+    <p>Buy 1 Science Lab</p>
+    <button>
+      <a href="#" onclick="buyLab()"
+        ><img
+          src="https://www.flaticon.com/svg/vstatic/svg/1283/1283487.svg?token=exp=1613679083~hmac=c60344295408d298cf91f6cfca2dadf3" alt="Science lab"
+          width="50"
+          height="60"
+      /></a>
+    </button>
+    <p id="labCost">500000 Cookies</p>
+    <p>
+      A science lab dedicated to the study of cookies
+    </p>
+    <p id="ammountLab">You own 0 Science Lab(s)</p>
 
     <p>------------------------------------------------------</p>
 
@@ -311,16 +335,15 @@
           update();
         }
       }
-      
+
       function buyBase() {
-        if (cookiecount >= (bank + 1) * 21000) {
-          cookiecount = cookiecount - (bank + 1) * 21000;
-          bank = bank + 1;
+        if (cookiecount >= (base + 1) * 75000) {
+          cookiecount = cookiecount - (base + 1) * 75000;
+          base = base + 1;
           update();
         }
       }
-      
-      
+
       function save() {
         localStorage.setItem("cookiecount", cookiecount);
         localStorage.setItem("autoclick", autoclicker);
@@ -330,6 +353,7 @@
         localStorage.setItem("mine", mine);
         localStorage.setItem("church", church);
         localStorage.setItem("bank", bank);
+        localStorage.setItem("base", base);
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
@@ -348,6 +372,8 @@
         church = parseInt(church);
         bank = localStorage.getItem("bank");
         bank = parseInt(bank);
+        base = localStorage.getItem("base");
+        base = parseInt(base);
 
         update();
       }
@@ -368,6 +394,8 @@
         church = parseInt(church);
         bank = 0;
         bank = parseInt(bank);
+        base = 0;
+        base = parseInt(base);
       }
     </script>
 
