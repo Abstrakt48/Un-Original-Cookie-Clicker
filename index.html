@@ -19,10 +19,10 @@
     document.getElementById("factoryCost").innerHTML =
       (factory + 1) * 120 + " Cookies";
     
-    document.getElementById("ammountMine").innerHTML =
-      "You Own " + mine + " Mines";
-    document.getElementById("mineCost").innerHTML =
-      (mine + 1) * 1200 + " Cookies";
+    document.getElementById("amountEdi").innerHTML =
+      "You Own " + weed + " Edibles";
+    document.getElementById("ediCost").innerHTML =
+      (weed + 1) * 420 + " Cookies";
   }
 
   var multiplier = 1;
@@ -30,13 +30,13 @@
   var autoclicker = 0;
   var granny = 0;
   var factory = 0;
-  var mine = 0;
+  var weed = 0;
 
   function timer() {
     cookiecount = cookiecount + autoclicker;
     cookiecount = cookiecount + granny * 2;
     cookiecount = cookiecount + factory * 5;
-    cookiecount = cookiecount + mine * 15;
+    cookiecount = cookiecount + weed * 15;
     update();
   }
 
@@ -125,15 +125,15 @@
     
     <p>------------------------------------------------------</p>
     
-    <!-- Mine-->
+    <!-- weed -->
 
-    <p>Buy 1 Mine</p>
+    <p>Buy 1 Edible</p>
     <button>
-      <a href="#" onclick="buyMine()"><img src="https://lh3.googleusercontent.com/proxy/L8gkKcpb80B7_QU9ZST37XR6wUzKTXQnoEhYjMwD1HC43nf7X0Ps5e7DPver6UJXheQD0dL0URjLrtbwF-NMMT3z1FEYjoEf" 
+      <a href="#" onclick="buyEdi()"><img src="https://dejpknyizje2n.cloudfront.net/marketplace/products/green-marijuana-leaf-pixel-art-icon-sticker-1599609514.1865683.png" 
       width="50" height="60"/></a>
     </button>
-    <p id="mineCost" >1200 Cookies</p>
-    <p id="ammountMine" >You own 0 Mines</p>
+    <p id="ediCost" >420 Cookies</p>
+    <p id="ammountEdi" >You own 0 Edible's</p>
     
     <p>------------------------------------------------------</p>
 
@@ -162,10 +162,10 @@
         }
       }
       
-      function buyMine() {
-        if (cookiecount >= (mine + 1) * 1200) {
-          cookiecount = cookiecount - (factory + 1) * 1200;
-          mine = mine + 1;
+      function buyEdi() {
+        if (cookiecount >= (weed + 1) * 420) {
+          cookiecount = cookiecount - (weed + 1) * 420;
+          weed = weed + 1;
           update();
         }
       }
@@ -175,7 +175,7 @@
         localStorage.setItem("autoclick", autoclicker);
         localStorage.setItem("grannys", granny);
         localStorage.setItem("factory", factory);
-        localStorage.setItem("mine", mine);
+        localStorage.setItem("weed", weed);
       }
       function load() {
         cookiecount = localStorage.getItem("cookiecount");
@@ -186,8 +186,8 @@
         granny = parseInt(granny);
         factory = localStorage.getItem("factory");
         factory = parseInt(factory);
-        mine = localStorage.getItem("mine");
-        mine = parseInt(mine)
+        weed = localStorage.getItem("weed");
+        weed = parseInt(weed)
 
         update();
       }
@@ -200,8 +200,8 @@
         granny = parseInt(granny);
         factory = 0;
         factory = parseInt(factory);
-        mine = 0;
-        mine = parseInt(mine);
+        weed = 0;
+        weed = parseInt(weed);
       }
       
     </script>
