@@ -24,12 +24,14 @@
   var granny = 0;
   var factory = 0;
   var weed = 0;
+  var mine = 0;
 
   function timer() {
     cookiecount = cookiecount + autoclicker;
     cookiecount = cookiecount + granny * 2;
     cookiecount = cookiecount + factory * 5;
-    cookiecount = cookiecount + weed * 15;
+    cookiecount = cookiecount + weed * 10;
+    cookiecount = cookiecount + mine * 20;
     
     update();
   }
@@ -130,6 +132,18 @@
     <p id="ammountEdi" >You own 0 Edible's</p>
     
     <p>------------------------------------------------------</p>
+    
+    <!-- mine -->
+
+    <p>Buy 1 Mine</p>
+    <button>
+      <a href="#" onclick="buyMine()"><img src="https://cdn.glitch.com/e319c3a2-d27b-451d-b4ff-2e97197976b9%2F9349e2f8-660c-43ab-8f9c-793caaf3800a.image.png?v=1613665971503" 
+      width="50" height="60"/></a>
+    </button>
+    <p id="mineCost" >720 Cookies</p>
+    <p id="ammountMine" >You own 0 Mine's</p>
+    
+    <p>------------------------------------------------------</p>
 
     <script>
       function buyclick() {
@@ -160,6 +174,14 @@
         if (cookiecount >= (weed + 1) * 420) {
           cookiecount = cookiecount - (weed + 1) * 420;
           weed = weed + 1;
+          update();
+        }
+      }
+      
+      function buyMine() {
+        if (cookiecount >= (mine + 1) * 720) {
+          cookiecount = cookiecount - (mine + 1) * 720;
+          mine = mine + 1;
           update();
         }
       }
